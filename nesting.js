@@ -52,7 +52,17 @@ var employees = [
 
 //Code Here
 
-
+function employeeUpdater() {
+  for (x in employees){
+    if(employees[x]['firstName'] === 'Theo'){
+     delete employees[x]
+    }
+    else if(employees[x]['firstName'] === 'Lorie'){
+      employees[x]['department'] = 'HR'
+    }
+  }
+  return (employees)
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -70,8 +80,18 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 //Code Here
 
-
-
+function removeDuplicates(arr) {
+  for (let i =0; i < arr.length ; i++ ){
+    console.log('I' + i +'NUMBER------'+ arr[i]) 
+    console.log(arr.length)
+    for(let j = (arr.length -1  ); j > i ; j--){
+      if (arr[i] === arr[j]){
+        arr.splice(j,1)
+      }
+    }
+  }
+  return arr 
+}
 ////////// PROBLEM 3 //////////
 
 // Do not edit the code below.
@@ -97,8 +117,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat['catFriends'][0]['activities'][1];
+var fluffy2ndFriend = cat['catFriends'][1]['name'];
 
 
 
@@ -140,6 +160,36 @@ var myCar = {
 
 //Code Here
 
+// function recordCleaner(myCar) {
+//   for(let x in myCar){
+//     if ([x] === 'accidents'){
+//       for(let i =0; i< myCar[x].length; i++) {
+//         // if (mycar[x][i]['atFaultForAccident'] === true){
+//           myCar[x][i]['atFaultForAccident'] = false
+//         // }
+//       }
+//     }
+//   }
+//   return myCar
+// }
+
+function recordCleaner() {
+  for(let x in myCar){
+    //console.log(x);
+    if (x === 'accidents'){
+      for(let i =0; i< myCar[x].length; i++) {
+        // console.log(myCar[x].length)
+        // console.log(myCar[x][i]['atFaultForAccident'])
+        
+          myCar[x][i]['atFaultForAccident'] = false
+        // console.log(myCar[x][i]['atFaultForAccident'])
+      }
+    }
+  }
+  
+ return (myCar)
+//  console.log()
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -159,4 +209,34 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
 //Code Here
 
+// function looper() {
+//   for(let i = 0; i < numsArr.length ; i++){
+//     for(let j=0; j < i.length ; j++){
+//       if(numsArr['i']['j']%2 === 0 ){
+//         numsArr['i']['j'] = 'even'
+//       }
+//       else{
+//         numsArr['i']['j'] = 'odd'
+//       }
+//     }
+//   }
+//   return(numsArr)
+// }
 
+function looper() {
+  for(let i = 0; i < numsArr.length ; i++){
+    // console.log(i)
+    // console.log(numsArr[i].length)
+    for(let j=0; j < numsArr[i].length ; j++){
+      // console.log(numsArr)
+      if(numsArr[i][j]%2 === 0 ){
+        numsArr[i][j] = 'even'
+      }
+      else{
+        numsArr[i][j] = 'odd'
+      }
+    }
+  }
+  //  console.log(numsArr)
+  return(numsArr)
+}
